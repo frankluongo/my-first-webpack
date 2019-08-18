@@ -262,3 +262,40 @@ To add `.jsx` as a resolver, do this in your webpack config:
 ```
 
 **NOTE:** You have to add `.js` here because adding this Resolver will override Webpack's Default
+
+## Lesson 5: How To Make Beautiful Apps With Webpack
+
+This lesson covers styling and what's next
+
+### 5.1 Styling & Webpack
+
+Webpack can transpile CSS, Sass and Less
+
+Create a Loader for CSS, Less and Sass — Starting with CSS
+
+```bash
+npm install --save-dev style-loader css-loader
+```
+
+**NOTE:** This requires two loaders, `style-loader` and `css-loader`
+
+Next, set up the entry in modules/rules
+
+```json
+  {
+    test: /\.css$/,
+    use: ['style-loader', 'css-loader'],
+  },
+```
+
+**NOTE:** Add configurations for Sass and Less on your own
+
+Next, create a `styles.css` file and add it to the `src` directory
+
+```CSS
+body {
+  color: green;
+}
+```
+
+Now, add it to your `index.js` file
