@@ -10,4 +10,4 @@ When you are using webpack, each JavaScript file you write becomes a module. Web
 
 ![JavaScript Compilation With Babel](images/unnamed.jpg)
 
-![JavaScript Compilation and Minification with Uglify, Minify and Babel](images/unnamed (1).jpg)
+![JavaScript Compilation and Minification with Uglify, Minify and Babel]('images/unnamed (1).jpg')
