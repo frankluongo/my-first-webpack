@@ -182,3 +182,83 @@ eval("var hello = function hello() {\n  console.log(\"hello world!\");\n};\n\nhe
 ```
 
 ## Lesson 4: How To Create a React App With Webpack
+
+This lesson will teach how to create a React App with Webpack
+
+### 4.1 Create React Code
+
+First, add React
+
+```bash
+npm install --save react react-dom
+```
+
+Then, replace the contents of `index.js` with some JSX and add an `index.html` file
+
+`index.js`
+
+```JSX
+import React from "react";
+import ReactDOM from "react-dom";
+class App extends React.Component {
+  render() {
+    return Hello {this.props.name};
+  }
+}
+var mountNode = document.getElementById("app");
+ReactDOM.render(, mountNode);
+```
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>React starter app</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="bundle.js"></script>
+    </body>
+</html>
+```
+
+### 4.2 Configure Babel To Transpile JSX
+
+Add Babel's React Preset
+
+```bash
+npm install --save-dev @babel/preset-react
+```
+
+Configure your `.babelrc` file to use the plugin
+
+```json
+{
+  "presets": ["@babel/preset-env", "@babel/preset-react"]
+}
+```
+
+### 4.3 Make Webpack Understand JSX
+
+In your Webpack Config File, Add JSX to the test portion of Babel
+
+```json
+  // test: /\.(js)$/,
+  test: /\.(js|jsx)$/,
+```
+
+#### 4.3.1 Resolver Extensions
+
+- Webpack can infer what extensions a file that is being imported may have
+- Ex.) `import FileBrowser from 'components/FileBrowser';` — Here, Webpack knows this is a `.js` file
+- Webpack doesn't do this with `.jsx` by default
+
+To add `.jsx` as a resolver, do this in your webpack config:
+
+```json
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+```
+
+**NOTE:** You have to add `.js` here because adding this Resolver will override Webpack's Default
